@@ -96,7 +96,7 @@ class CenaFilosofosGUI(tk.Tk):
         self.iniciar_btn = tk.Button(self.controles_frame, text="Iniciar", command=self.iniciar)
         self.iniciar_btn.pack(side=tk.LEFT)
 
-        self.pausar_btn = tk.Button(self.controles_frame, text="Pausar", command=self.pausar, state=tk.DISABLED)
+        self.pausar_btn = tk.Button(self.controles_frame, text="Pausar", command=self.pausar)
         self.pausar_btn.pack(side=tk.LEFT)
 
         self.reset_btn = tk.Button(self.controles_frame, text="Reset", command=self.reset)
@@ -129,11 +129,11 @@ class CenaFilosofosGUI(tk.Tk):
             self.comidas_labels.append(comidas_label)
 
     def actualizar_estado(self, filosofo_id, estado):
-        color = "white"  # Color para el estado "PENSANDO"
+        color = "blue"  # Color para el estado "PENSANDO"
         if estado == "COMIENDO":
-            color = "orange"
+            color = "green"
         elif estado == "HAMBRIENTO":
-            color = "pink"
+            color = "red"
 
         self.estado_labels[filosofo_id].configure(text=estado, fg=color)
 
@@ -186,7 +186,7 @@ class CenaFilosofosGUI(tk.Tk):
         self.destroy()
 
     def creditos(self):
-        tk.messagebox.showinfo(title="Créditos", message= "Desarrollado por Alex Muñoz")
+        tk.messagebox.showinfo("Créditos", "Desarrollado por [Tu nombre]")
 
 
 if __name__ == "__main__":
